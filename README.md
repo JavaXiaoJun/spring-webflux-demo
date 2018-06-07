@@ -8,7 +8,7 @@
 
 ## 响应式编程框架推荐
 >  WebFlux框架 + Reactor + Netty。
-   <img src="./docs/images/create.png"/>
+   <img src="./docs/webflux.png"/>
 
 ## WebFlux framework介绍
 >  WebFlux frameword是Spring5第一代响应式编程框架，官方文档：https://docs.spring.io/spring/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/web-reactive.html

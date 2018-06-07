@@ -1,11 +1,15 @@
 package com.study.controller;
 
+import com.study.handler.DemoHandler;
 import com.study.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
@@ -14,6 +18,9 @@ public class DemoController {
 
     @Autowired
     private Scheduler scheduler;
+
+    @Autowired
+    private DemoHandler handler;
 
     /**
      * for spring webflux
@@ -48,6 +55,14 @@ public class DemoController {
         System.out.println(messagetype + ":" + messagebody);
         Thread.sleep(20);
         return "0";
+    }
+
+    @RequestMapping(value = "/demo2", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public Mono<Product> demo2() throws InterruptedException {
+        Mono<Product> product  = handler.handleGetProduct(10);
+        System.out.println("test !!!!!!!!!!!!!!!!!!!");
+        return product ;
     }
 
 

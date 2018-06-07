@@ -1,0 +1,5 @@
+.idea/*
+*.iml
+target/*
+logs/*
+src/main/resources/public/package/*

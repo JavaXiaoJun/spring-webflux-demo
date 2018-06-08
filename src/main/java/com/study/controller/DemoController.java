@@ -37,7 +37,7 @@ public class DemoController {
             System.out.println(type + ":" + body);
             Thread.sleep(20);
             return new Product(0);
-        }).subscribeOn(scheduler);
+        }).subscribeOn(scheduler).onErrorReturn(new Product(0));
         return result;
     }
 
